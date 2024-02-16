@@ -72,18 +72,11 @@ void suspend_wakeup_init_kb(void) {
 
 __attribute__ ((weak))
 
-bool rgb_matrix_indicators_kb(void) {
-    if (!rgb_matrix_indicators_user()) {
-        return false;
-    }
-    rgb_matrix_set_color(40, 0xFF, 0xFF, 0xFF);
-    return true;
-}
-
-/*
-void rgb_matrix_indicators_user(void) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (host_keyboard_led_state().caps_lock) {
-        rgb_matrix_set_color(40, 0xFF, 0xFF, 0xFF);
+        RGB_MATRIX_INDICATOR_SET_COLOR(0, 255, 0, 0); // assuming caps lock is at led #0
+    } else {
+        RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 0); // Indicator LED Off 
     }
+    return false;
 }
-*/

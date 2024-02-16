@@ -19,11 +19,11 @@
 	#include "led.c"
 #endif
 
-/*
+
 #ifdef RGB_MATRIX_ENABLE
 	#include "led_matrix.c"
 #endif
-*/
+
 
 
 

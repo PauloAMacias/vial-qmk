@@ -38,6 +38,12 @@ const  char icon_brightness1 [] PROGMEM = {
 		0x80, 0x80, 0x84, 0x08, 0x10, 0xc0, 0x60, 0x27, 0x27, 0x60, 0xc0, 0x10, 0x08, 0x84, 0x80, 0x80, 
 };
 
+// 'd-pad', 24x24px
+const char mode_dpad [] PROGMEM = {
+	0,  0,  0,  0,  0,  0,  0,  0,252,  4, 36, 20, 20, 36,  4,252,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,255,129,153,165,129,129,129,  0, 24, 60, 60, 24,  0,129,129,129,165,153,129,255,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 63, 32, 36, 40, 40, 36, 32, 63,  0,  0,  0,  0,  0,  0,  0,  0,
+};
+
+
 static void render_logo(void) {
     static const  char PROGMEM raw_logo[] = {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0xf0, 0x38, 0xe4, 0xf8, 0xfe, 0xff, 0xff, 0xff, 0xfe, 
@@ -104,6 +110,11 @@ static void print_mode(uint8_t pos_col, uint8_t pos_row) {
         // Star
         case 3:
             oled_draw_thin_raw_P(mode_star, sizeof(mode_star), 24, pos_col, pos_row);
+            break;
+
+        // D-pad
+        case 4:
+            oled_draw_thin_raw_P(mode_dpad, sizeof(mode_dpad), 24, pos_col, pos_row);
             break;
 
         default:
